@@ -1,0 +1,7 @@
+@import "tailwindcss";
+.spinner-border {
+    border-width: 4px;
+    border-block-start-color: transparent;
+    border-radius: 50%;
+  }
+  
