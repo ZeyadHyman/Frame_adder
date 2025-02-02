@@ -20,8 +20,9 @@ function ImagesUploader() {
       const img = new Image();
       img.onload = () => {
         newImages.push({ imageUrl, width: img.width, height: img.height });
+
         if (newImages.length === files.length) {
-          setImages(newImages);
+          setImages((prevImages) => [...prevImages, ...newImages]);
         }
       };
       img.src = imageUrl;
@@ -110,9 +111,22 @@ function ImagesUploader() {
 
       {images.length > 0 && (
         <div>
-          <h2 className="text-xl md:text-2xl font-medium text-gray-800 mb-4">
-            الصور المرفوعة:
-          </h2>
+          <div className="flex justify-between">
+            <h2 className="text-xl md:text-2xl font-medium text-gray-800 mb-4">
+              الصور المرفوعة:
+            </h2>
+
+            <label className="h-10 w-10 flex items-center justify-center pb-2 text-white text-4xl rounded-full bg-red-900 cursor-pointer">
+              +
+              <input
+                multiple
+                type="file"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+            </label>
+          </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4">
             {images.map((image, index) => (
               <div key={index} className="relative group">
@@ -123,7 +137,7 @@ function ImagesUploader() {
                 />
                 <button
                   onClick={() => handleDeleteImage(index)}
-                  className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold py-1 px-2 rounded-full opacity-90 hover:opacity-100 transition"
+                  className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold h-8 w-8 py-1 px-2 rounded-full opacity-90 hover:opacity-100 transition"
                 >
                   ✕
                 </button>
@@ -133,13 +147,13 @@ function ImagesUploader() {
           <div className="mt-6 flex gap-3">
             <button
               onClick={handleDownloadAll}
-              className="w-full bg-green-500 text-white text-base md:text-lg font-semibold py-3 rounded-lg shadow-md hover:bg-green-600 transition"
+              className="w-full cursor-pointer bg-green-500 text-white text-base md:text-lg font-semibold py-3 rounded-lg shadow-md hover:bg-green-600 transition"
             >
               تحميل جميع الصور
             </button>
             <button
               onClick={handleDeleteAllImages}
-              className="w-full bg-red-500 text-white text-base md:text-lg font-semibold py-3 rounded-lg shadow-md hover:bg-red-600 transition"
+              className="w-full cursor-pointer bg-red-500 text-white text-base md:text-lg font-semibold py-3 rounded-lg shadow-md hover:bg-red-600 transition"
             >
               حذف جميع الصور
             </button>
