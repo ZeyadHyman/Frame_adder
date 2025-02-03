@@ -3,7 +3,7 @@ import ImagesUploader from "./Components/ImagesUploader";
 const App = () => {
   return (
     <div
-      className="md:px-6 md:py-12 bg-gray-100 min-h-screen flex md:justify-center md:items-center"
+      className="min-h-screen bg-gray-100 flex flex-col items-center justify-center px-4 md:px-6"
       dir="rtl"
     >
       <div className="w-full max-w-7xl bg-white rounded-lg p-8">
@@ -15,9 +15,18 @@ const App = () => {
           <ImagesUploader />
         </div>
       </div>
+
+      <footer className="mt-8 text-gray-500 text-center text-sm md:text-base">
+        Powered by{" "}
+        <a
+          href="https://www.linkedin.com/in/zeyad-hyman-7a5968347"
+          className="text-gray-700 font-semibold hover:underline"
+        >
+          Zeyad Hyman
+        </a>
+      </footer>
     </div>
   );
 };
 
 export default App;
-
