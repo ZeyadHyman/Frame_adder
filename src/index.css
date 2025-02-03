@@ -1,7 +1,11 @@
 @import "tailwindcss";
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
 .spinner-border {
-    border-width: 4px;
-    border-block-start-color: transparent;
-    border-radius: 50%;
-  }
-  
+  border-width: 4px;
+  border-block-start-color: transparent;
+  border-radius: 50%;
+}

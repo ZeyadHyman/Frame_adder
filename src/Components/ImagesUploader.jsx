@@ -116,7 +116,7 @@ function ImagesUploader() {
               الصور المرفوعة:
             </h2>
 
-            <label className="h-10 w-10 flex items-center justify-center pb-2 text-white text-4xl rounded-full bg-red-900 cursor-pointer">
+            <label className="h-10 w-10 flex items-center justify-center md:pb-2 text-white text-4xl rounded-full bg-red-900 cursor-pointer">
               +
               <input
                 multiple

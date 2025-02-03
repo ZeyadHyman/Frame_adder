@@ -7,7 +7,7 @@ const App = () => {
       dir="rtl"
     >
       <div className="w-full max-w-7xl bg-white rounded-lg p-8">
-        <h1 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">
           رفع الصور والفريم
         </h1>
 
@@ -16,7 +16,7 @@ const App = () => {
         </div>
       </div>
 
-      <footer className="mt-8 text-gray-500 text-center text-sm md:text-base">
+      <footer className="my-8 text-gray-500 text-center text-base">
         Powered by{" "}
         <a
           href="https://www.linkedin.com/in/zeyad-hyman-7a5968347"
