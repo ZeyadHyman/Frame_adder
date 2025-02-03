@@ -49,6 +49,7 @@ function ImagesUploader() {
       const img = new Image();
       img.src = image.imageUrl;
       img.onload = () => {
+        // Set canvas size to match image size (no additional height for frame)
         canvas.width = img.width;
         canvas.height = img.height;
 
@@ -63,19 +64,24 @@ function ImagesUploader() {
             const frameWidth = img.width; // Match the image width
             const frameHeight = frameWidth / frameAspectRatio; // Scale height proportionally
 
-            // Resize canvas to fit both image and frame
-            canvas.height = img.height + frameHeight;
+            // Set frame opacity to 90%
+            ctx.globalAlpha = 0.8;
 
-            // Redraw image
-            ctx.drawImage(img, 0, 0);
+            // Draw the frame directly below the image (at the bottom)
+            ctx.drawImage(
+              frameImg,
+              0,
+              img.height - frameHeight,
+              frameWidth,
+              frameHeight
+            );
 
-            // Draw frame at the bottom of the image
-            ctx.drawImage(frameImg, 0, img.height, frameWidth, frameHeight);
+            // Reset opacity back to 100% for any other elements
+            ctx.globalAlpha = 1.0;
 
             // Use canvas.toBlob to avoid re-compressing unnecessarily
             canvas.toBlob(
               (blob) => {
-                // Instead of adding extra compression, use the original quality
                 zip.file(`image-${index + 1}.jpg`, blob);
                 downloadCount++;
 
@@ -116,7 +122,7 @@ function ImagesUploader() {
               الصور المرفوعة:
             </h2>
 
-            <label className="h-10 w-10 flex items-center justify-center md:pb-2 text-white text-4xl rounded-full bg-red-900 cursor-pointer">
+            <label className="h-10 w-10 flex items-center justify-center md:pb-1 text-white text-4xl rounded-full bg-red-900 cursor-pointer">
               +
               <input
                 multiple
