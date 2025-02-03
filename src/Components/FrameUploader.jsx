@@ -22,7 +22,7 @@ function FrameUploader({ setFrame, setFrameHeight }) {
 
   return (
     <div className="mb-8">
-      <h2 className="text-2xl font-semibold text-gray-700 mb-4">الفريم</h2>
+      <h2 className="text-xl font-semibold text-gray-700 mb-4">الفريم</h2>
       <div className="w-full flex flex-col items-center">
         <input
           type="file"
