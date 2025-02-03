@@ -19,6 +19,7 @@ const App = () => {
       <footer className="my-8 text-gray-500 text-center text-base">
         Powered by{" "}
         <a
+          target="_blank"
           href="https://www.linkedin.com/in/zeyad-hyman-7a5968347"
           className="text-gray-700 font-semibold hover:underline"
         >
